@@ -2,7 +2,7 @@
 ## 常用工具库
 ## Authors
 
-- [@汪令镭](https://github.com/wanglinglei?tab=repositories)
+- [@汪令镭](https://github.com/wanglinglei/wanglinglei)
 
 
 ## Features
