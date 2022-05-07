@@ -1,3 +1,4 @@
+//@ts-nocheck
 import axios from "axios";
 
 const instance = axios.create();
@@ -25,25 +26,73 @@ instance.interceptors.request.use((config) => {
 // 后续返回的请求进入请求队列 token刷新之后 重新发起请求
 
 instance.interceptors.response.use((response) => {
-  if (response?.statusText === "token.expired") {
-    isRefreshToken = true;
-    getToken().then((token) => {
-      isRefreshToken = false;
-      refreshRequest.forEach((request) => request(token));
-      return instance(response.config);
-    });
+  return new Promise<void>(
+    (resolve, reject) => {
+      if (response?.statusText === "token.expired") {
+        isRefreshToken = true;
+        getToken().then((token) => {
+          isRefreshToken = false;
+          refreshRequest.forEach((request) => request(token));
+          return instance(response.config);
+        });
 
-    return new Promise((resolve, reject) => {
-      refreshRequest.push((token) => {
+        return new Promise((resolve, reject) => {
+          refreshRequest.push((token) => {
+            // @ts-ignore
+            response.config.token = token;
+            resolve(instance(response.config));
+          });
+        });
+      } else {
         // @ts-ignore
-        response.config.token = token;
-        resolve(instance(response.config));
-      });
-    });
-  } else {
-    return response;
-  }
+        if (response.status === "9999") {
+          return Promise.resolve(response);
+        } else {
+          return Promise.reject(response);
+        }
+      }
+    },
+    (err: any) => {
+      return Promise.reject(err);
+    }
+  );
 });
+
+/**
+ *
+ * @param params
+ */
+export function get(url: string, param: object = {}) {
+  return new Promise((resolve, reject) => {
+    instance
+      .get(url, {
+        method: "get",
+        data: { ...param },
+      })
+      .then((res) => {
+        resolve([undefined, res]);
+      })
+      .catch((err) => {
+        reject(err, undefined);
+      });
+  });
+}
+
+export function post(url: string, param: object = {}) {
+  return new Promise((resolve, reject) => {
+    instance
+      .post(url, {
+        method: "post",
+        data: { ...param },
+      })
+      .then((res) => {
+        resolve([undefined, res]);
+      })
+      .catch((err) => {
+        reject(err, undefined);
+      });
+  });
+}
 
 async function getToken() {
   // doSomeThing
