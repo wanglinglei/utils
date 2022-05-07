@@ -1,8 +1,8 @@
 /*
  * @Author: wanglinglei
  * @Date: 2022-04-05 20:54:59
- * @LastEditors: wanglinglei
- * @LastEditTime: 2022-04-06 22:09:23
+ * @LastEditors: wanglinglei 18627024279@163.com
+ * @LastEditTime: 2022-05-07 19:08:38
  * @Description: file content
  * @FilePath: \utils\date.js
  */
@@ -67,6 +67,7 @@ export function getFromNowString(
  * @param {number} n
  * @return {number}
  */
+
 export function getDistanceDateTime(n: number) {
   const nowDate = new Date();
   let y = nowDate.getFullYear();
