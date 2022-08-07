@@ -2,9 +2,18 @@
  * @Author: wanglinglei
  * @Date: 2022-04-06 22:10:47
  * @LastEditors: wanglinglei 18627024279@163.com
- * @LastEditTime: 2022-05-07 23:04:33
+ * @LastEditTime: 2022-08-07 17:46:25
  * @Description: file content
  */
+
+/**
+ * @description: 判断是否是字符串
+ * @param {*} int
+ * @return {*}
+ */
+export function isString(int) {
+  return typeof int === "string";
+}
 
 /**
  * @description: 判断是对象
