@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "axios": "^0.27.2"

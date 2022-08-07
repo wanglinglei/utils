@@ -26,3 +26,12 @@
     *-fix xxxx*
     *-docs xxxx*
 
+
+
+### jest 单元测试
+```
+// 单元测试
+npm run test
+// 单元测试 生成测试报告
+npm run test:coverage
+```
