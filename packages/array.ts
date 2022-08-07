@@ -14,6 +14,7 @@ export function getArrayMax(arr: number[]) {
         res = ele > res ? ele : res;
       }
     });
+    return res;
   } else {
     throw new Error("arr is not a Array");
   }
@@ -24,7 +25,7 @@ export function getArrayMax(arr: number[]) {
  * @param {number} num 每组个数
  * @return {*}
  */
-export function arrayTrans(arr: [], num: number) {
+export function arrayTrans(arr: any[], num: number) {
   if (isArray(arr)) {
     let res = [];
     arr.forEach((item, index) => {
@@ -40,3 +41,13 @@ export function arrayTrans(arr: [], num: number) {
     throw new Error("arr is not a Array");
   }
 }
+
+export function sum(a, b) {
+  return a + b;
+}
+
+export function sort(arr = []) {
+  return arr.sort();
+}
+
+// console.log(arrayTrans([1, 2, 3, 4, 5], 2));
