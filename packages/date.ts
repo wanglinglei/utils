@@ -2,7 +2,7 @@
  * @Author: wanglinglei
  * @Date: 2022-04-05 20:54:59
  * @LastEditors: wanglinglei 18627024279@163.com
- * @LastEditTime: 2022-05-07 19:08:38
+ * @LastEditTime: 2022-08-08 21:59:06
  * @Description: file content
  * @FilePath: \utils\date.js
  */
@@ -12,11 +12,11 @@
  * @param {*}
  * @return {string} string
  */
-export function getYMDString(): string {
-  const nowTime = new Date();
+export function getYMDString(time: number | undefined): string {
+  const nowTime = time ? new Date(time) : new Date();
   const y = String(nowTime.getFullYear());
   const m = String(nowTime.getMonth() + 1).padStart(2, "0");
-  const d = String(nowTime.getDate() + 1).padStart(2, "0");
+  const d = String(nowTime.getDate()).padStart(2, "0");
   return y + m + d;
 }
 
@@ -43,7 +43,7 @@ export function getFromNowString(
     if (diffTimeToMinutes < 60) {
       return diffTimeToMinutes + "分钟前";
     } else {
-      const diffTimeToHour = Math.ceil(diffTime / 60);
+      const diffTimeToHour = Math.ceil(diffTimeToMinutes / 60);
       if (diffTimeToHour < 24) {
         return diffTimeToHour + "小时前";
       } else {
@@ -54,7 +54,7 @@ export function getFromNowString(
           const baseDate = new Date(baseTime);
           const y = String(baseDate.getFullYear());
           const m = String(baseDate.getMonth() + 1).padStart(2, "0");
-          const d = String(baseDate.getDate() + 1).padStart(2, "0");
+          const d = String(baseDate.getDate()).padStart(2, "0");
           return `${y}-${m}-${d}`;
         }
       }
