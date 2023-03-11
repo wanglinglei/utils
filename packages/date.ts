@@ -2,7 +2,7 @@
  * @Author: wanglinglei
  * @Date: 2022-04-05 20:54:59
  * @LastEditors: wanglinglei 18627024279@163.com
- * @LastEditTime: 2022-08-08 21:59:06
+ * @LastEditTime: 2023-03-11 12:00:24
  * @Description: file content
  * @FilePath: \utils\date.js
  */
@@ -87,4 +87,25 @@ export function getDistanceDateTime(n: number) {
   d = nowDate.getDate();
   let s = `${y}-${m < 10 ? "0" + m : m}-${d < 10 ? "0" + d : d}`;
   return new Date(s).getTime();
+}
+
+let weekList = [
+  "星期天",
+  "星期一",
+  "星期二",
+  "星期三",
+  "星期四",
+  "星期五",
+  "星期六",
+];
+/**
+ * @description: 获取当前时间戳对应的星期
+ * @param {number} n
+ * @return {*}
+ */
+export function getWeekDate(n: number | undefined) {
+  if (!n) {
+    return weekList[new Date().getDay()];
+  }
+  return weekList[new Date(n).getDay()];
 }

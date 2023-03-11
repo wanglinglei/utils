@@ -2,7 +2,7 @@
  * @Author: wanglinglei
  * @Date: 2022-04-06 22:10:47
  * @LastEditors: wanglinglei 18627024279@163.com
- * @LastEditTime: 2022-08-07 17:46:25
+ * @LastEditTime: 2023-03-11 12:06:58
  * @Description: file content
  */
 
@@ -11,7 +11,7 @@
  * @param {*} int
  * @return {*}
  */
-export function isString(int) {
+export function isString(int): int is String {
   return typeof int === "string";
 }
 
@@ -20,7 +20,7 @@ export function isString(int) {
  * @param {*} int
  * @return {boolean}
  */
-export function isObject(int) {
+export function isObject(int): int is Object {
   return Object.prototype.toString.call(int) === "[object Object]";
 }
 /**
@@ -28,7 +28,7 @@ export function isObject(int) {
  * @param {*} int
  * @return {boolean}
  */
-export function isArray(int) {
+export function isArray(int): int is [] {
   if (Array.isArray) {
     return Array.isArray(int);
   } else {
