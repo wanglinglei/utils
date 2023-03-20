@@ -2,7 +2,7 @@
  * @Author: wanglinglei
  * @Date: 2022-04-06 22:10:47
  * @LastEditors: wanglinglei 18627024279@163.com
- * @LastEditTime: 2023-03-11 12:06:58
+ * @LastEditTime: 2023-03-20 22:00:33
  * @Description: file content
  */
 
@@ -28,7 +28,7 @@ export function isObject(int): int is Object {
  * @param {*} int
  * @return {boolean}
  */
-export function isArray(int): int is [] {
+export function isArray(int): int is any[]  {
   if (Array.isArray) {
     return Array.isArray(int);
   } else {

@@ -42,12 +42,44 @@ export function arrayTrans(arr: any[], num: number) {
   }
 }
 
-export function sum(a, b) {
-  return a + b;
+
+/**
+ * @description: 判断数组中的元素是否都相等
+ * @param {any} arr
+ * @return {*}
+ */
+export function allEqualArray(arr: any[]):Boolean {
+  if (isArray(arr)) {
+    return arr.every((val) => val === arr[0]);
+  } else {
+    throw new Error("arr is not a Array");
+  }
 }
 
-export function sort(arr = []) {
-  return arr.sort();
+/**
+ * @description: 获取数组中的有效值
+ * @param {any} arr
+ * @return {*}
+ */
+export function getValidArray(arr: any[]):any[] {
+  if (isArray(arr)) {
+    return arr.filter((item) => item||item===0);
+  } else {
+    throw new Error("arr is not a Array");
+  }
 }
 
-// console.log(arrayTrans([1, 2, 3, 4, 5], 2));
+
+/**
+ * @description: 获取数组中的某个元素出现的次数
+ * @param {any} arr
+ * @param {any} child
+ * @return {*}
+ */
+export function getArrayChildTimes(arr: any[], child: any): number {
+  if (isArray(arr)) {
+    return arr.filter((item) => item === child).length;
+  } else {
+    throw new Error("arr is not a Array");
+  }
+}
