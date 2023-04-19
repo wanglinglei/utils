@@ -82,3 +82,16 @@ export function trimString(str: string, type: 1 | 2 | 3 | 4): string {
       return str;
   }
 }
+
+
+
+/**
+ * @description: 字符串驼峰转中划线
+ * @param {string} str
+ * @return {*}
+ * */
+export function humpStingToStrikethrough(str: string): string {
+  return str.replace(/([A-Z])/g, "-$1").toLowerCase();
+}
+
+
