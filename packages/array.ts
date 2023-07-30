@@ -83,3 +83,13 @@ export function getArrayChildTimes(arr: any[], child: any): number {
     throw new Error("arr is not a Array");
   }
 }
+
+/**
+ * @description: 混淆数组
+ * @param {any} arr
+ * @return {*}
+ */
+export function confuseArray(arr:any[]): any[] {
+  const res=arr.slice().sort(() => Math.random() - .5);
+  return res;
+}

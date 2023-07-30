@@ -1,7 +1,8 @@
 {
   "scripts": {
     "test": "jest",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "prepare":"husky install"
   },
   "dependencies": {
     "axios": "^0.27.2"

@@ -1,10 +1,3 @@
-/*
- * @Author: wanglinglei
- * @Date: 2022-04-06 22:10:47
- * @LastEditors: wanglinglei 18627024279@163.com
- * @LastEditTime: 2023-03-20 22:00:33
- * @Description: file content
- */
 
 /**
  * @description: 判断是否是字符串
@@ -80,4 +73,35 @@ export function deepClone(obj) {
     }
   }
   return objClone;
+}
+
+/**
+ * @description: 获取数据类型
+ * @param {any} obj
+ * @return {*}
+ */
+export function getType(obj: any): string {
+  return Object.prototype.toString.call(obj).slice(8,-1).toLowerCase();
+}
+
+
+/**
+ * @description: 生成随机颜色
+ * @return {*}
+ */
+export function randomColor():string {
+  return "#" + Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, "0");
+}
+
+/**
+ * @description: sleep 函数
+ * @param {number} time
+ * @return {*}
+ */
+export function jsSleep(time:number=1000){
+  return new Promise((resolve, reject) =>{
+    setTimeout(()=>{
+      resolve(time);
+    },time)
+  })
 }

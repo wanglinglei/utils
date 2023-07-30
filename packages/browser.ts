@@ -33,3 +33,38 @@ export function getUrlParams(url: string) {
   const urlSearchParams = new URLSearchParams(urlStr);
   return Object.fromEntries(urlSearchParams.entries());
 }
+
+
+/**
+ * @description: 开启全屏
+ * @param {HTMLElement} element
+ * @return {*}
+ */
+export function launchFullScreen(element: HTMLElement){
+  if(element.requestFullscreen){
+    element.requestFullscreen();
+  } else if(element.mozRequestFullScreen){
+    element.mozRequestFullScreen();
+  } else if(element.webkitRequestFullScreen){
+    element.webkitRequestFullScreen();
+  }else if(element.msRequestFullScreen){
+    element.msRequestFullScreen()
+  }
+}
+
+
+/**
+ * @description: 退出全屏
+ * @return {*}
+ */
+export function exitFullScreen(){
+  if (document.exitFullscreen) {
+    document.exitFullscreen()
+  } else if (document.msExitFullscreen) {
+    document.msExitFullscreen()
+  } else if (document.mozCancelFullScreen) {
+    document.mozCancelFullScreen()
+  } else if (document.webkitExitFullscreen) {
+    document.webkitExitFullscreen()
+  }
+}
