@@ -35,3 +35,51 @@ npm run test
 // 单元测试 生成测试报告
 npm run test:coverage
 ```
+### 工具函数列表
+#### array.ts 
+ | 函数名 | 函数描述| 
+ |:----:|:----|
+|getArrayMax| 获取数组中的最大值
+|arrayTrans| 数组转二位数组
+|allEqualArray| 判断数组中的元素是否都相等
+|getValidArray| 获取数组中的有效值
+|getArrayChildTimes| 获取数组中的某个元素出现的次数
+#### browser.ts 
+ | 函数名 | 函数描述| 
+ |:----:|:----|
+|copyToClipboard| 复制内容到剪切板
+|getSelectionText| 获取选中的文本
+|isAppleDevice| 判断是否是苹果设备
+|getUrlParams| 获取url参数
+#### date.ts 
+ | 函数名 | 函数描述| 
+ |:----:|:----|
+|getYMDString| 获取yyyymmdd
+|getFromNowString| 处理距离指定时间描述文案
+|getDistanceDateTime| 获取与当前时间相隔n天的时间戳
+|getWeekDate| 获取当前时间戳对应的星期
+#### function.ts 
+ | 函数名 | 函数描述| 
+ |:----:|:----|
+|catchFunctionError| 捕获函数错误
+|onceCall| 只执行一次的函数
+#### string.ts 
+ | 函数名 | 函数描述| 
+ |:----:|:----|
+|testString| 异常处理
+|capitalToUpperCase| 字符串首字母转大写
+|reverseString| 字符串翻转
+|randomString| 随机字符串
+|sliceStringAndEllipsis| 字符串指定位置裁剪拼接省略号
+|stringFilterHtml| 去除字符串中的HTML标签
+|trimString| 去处字符串空格
+|humpStingToStrikethrough| 字符串驼峰转中划线
+#### utils.ts 
+ | 函数名 | 函数描述| 
+ |:----:|:----|
+|isString| 判断是否是字符串
+|isObject| 判断是对象
+|isArray| 判断是否是数组
+|isEmpty| 判断是否为空
+|filterNumber|数字千分位分隔
+|deepClone| 深拷贝
