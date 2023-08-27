@@ -37,49 +37,49 @@ npm run test:coverage
 ```
 ### 工具函数列表
 #### array.ts 
- | 函数名 | 函数描述| 
- |:----:|:----|
-|getArrayMax| 获取数组中的最大值
-|arrayTrans| 数组转二位数组
-|allEqualArray| 判断数组中的元素是否都相等
-|getValidArray| 获取数组中的有效值
-|getArrayChildTimes| 获取数组中的某个元素出现的次数
+ | 函数名 | 函数描述|入参|返回值| 
+ |:----:|:----|:----:|:----:|
+|getArrayMax| 获取数组中的最大值|arr: number[]|--|
+|arrayTrans| 数组转二位数组|arr: any[], num: number|--|
+|allEqualArray| 判断数组中的元素是否都相等|arr: any[]|Boolean|
+|getValidArray| 获取数组中的有效值|arr: any[]|any[]|
+|getArrayChildTimes| 获取数组中的某个元素出现的次数|arr: any[], child: any|number|
 #### browser.ts 
- | 函数名 | 函数描述| 
- |:----:|:----|
-|copyToClipboard| 复制内容到剪切板
-|getSelectionText| 获取选中的文本
-|isAppleDevice| 判断是否是苹果设备
-|getUrlParams| 获取url参数
+ | 函数名 | 函数描述|入参|返回值| 
+ |:----:|:----|:----:|:----:|
+|copyToClipboard| 复制内容到剪切板|text: string|--|
+|getSelectionText| 获取选中的文本||--|
+|isAppleDevice| 判断是否是苹果设备||--|
+|getUrlParams| 获取url参数|url: string|--|
 #### date.ts 
- | 函数名 | 函数描述| 
- |:----:|:----|
-|getYMDString| 获取yyyymmdd
-|getFromNowString| 处理距离指定时间描述文案
-|getDistanceDateTime| 获取与当前时间相隔n天的时间戳
-|getWeekDate| 获取当前时间戳对应的星期
+ | 函数名 | 函数描述|入参|返回值| 
+ |:----:|:----|:----:|:----:|
+|getYMDString| 获取yyyymmdd|time: number|string|
+|getFromNowString| 处理距离指定时间描述文案|startTime: string / number, currentTime: string / number|string|
+|getDistanceDateTime| 获取与当前时间相隔n天的时间戳|n: number|--|
+|getWeekDate| 获取当前时间戳对应的星期|n: number|--|
 #### function.ts 
- | 函数名 | 函数描述| 
- |:----:|:----|
-|catchFunctionError| 捕获函数错误
-|onceCall| 只执行一次的函数
+ | 函数名 | 函数描述|入参|返回值| 
+ |:----:|:----|:----:|:----:|
+|catchFunctionError| 捕获函数错误|fn: Function, args: any[]|--|
+|onceCall| 只执行一次的函数|fn: Function|--|
 #### string.ts 
- | 函数名 | 函数描述| 
- |:----:|:----|
-|testString| 异常处理
-|capitalToUpperCase| 字符串首字母转大写
-|reverseString| 字符串翻转
-|randomString| 随机字符串
-|sliceStringAndEllipsis| 字符串指定位置裁剪拼接省略号
-|stringFilterHtml| 去除字符串中的HTML标签
-|trimString| 去处字符串空格
-|humpStingToStrikethrough| 字符串驼峰转中划线
+ | 函数名 | 函数描述|入参|返回值| 
+ |:----:|:----|:----:|:----:|
+|testString| 异常处理|str: any|--|
+|capitalToUpperCase| 字符串首字母转大写|str: string|--|
+|reverseString| 字符串翻转|str: string|--|
+|randomString| 随机字符串||--|
+|sliceStringAndEllipsis| 字符串指定位置裁剪拼接省略号|str: string, length: number|--|
+|stringFilterHtml| 去除字符串中的HTML标签|str: string|--|
+|trimString| 去处字符串空格|str: string, type: 1 / 2 / 3 / 4|string|
+|humpStingToStrikethrough| 字符串驼峰转中划线|str: string|string|
 #### utils.ts 
- | 函数名 | 函数描述| 
- |:----:|:----|
-|isString| 判断是否是字符串
-|isObject| 判断是对象
-|isArray| 判断是否是数组
-|isEmpty| 判断是否为空
-|filterNumber|数字千分位分隔
-|deepClone| 深拷贝
+ | 函数名 | 函数描述|入参|返回值| 
+ |:----:|:----|:----:|:----:|
+|isString| 判断是否是字符串|int: any|int is String|
+|isObject| 判断是对象|int: any|int is Object|
+|isArray| 判断是否是数组|int: any|int is any[]|
+|isEmpty| 判断是否为空|int: any|--|
+|filterNumber|数字千分位分隔|int: string / number|string|
+|deepClone| 深拷贝|obj: any|--|
