@@ -21,7 +21,7 @@ export function getYMDString(time: number | undefined): string {
 }
 
 /**
- * @description:
+ * @description: 处理距离指定时间描述文案
  * @param {string} startTime 计算开始时间 时间戳
  * @param {string} currentTime 计算结束时间 时间戳
  * @return {string}
