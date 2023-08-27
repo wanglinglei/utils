@@ -43,11 +43,17 @@ export function getUrlParams(url: string) {
 export function launchFullScreen(element: HTMLElement){
   if(element.requestFullscreen){
     element.requestFullscreen();
+    // @ts-ignore
   } else if(element.mozRequestFullScreen){
+    //@ts-ignore
     element.mozRequestFullScreen();
+    // @ts-ignore
   } else if(element.webkitRequestFullScreen){
+    // @ts-ignore
     element.webkitRequestFullScreen();
+    // @ts-ignore
   }else if(element.msRequestFullScreen){
+    // @ts-ignore
     element.msRequestFullScreen()
   }
 }
@@ -60,11 +66,53 @@ export function launchFullScreen(element: HTMLElement){
 export function exitFullScreen(){
   if (document.exitFullscreen) {
     document.exitFullscreen()
+    // @ts-ignore
   } else if (document.msExitFullscreen) {
+    // @ts-ignore
     document.msExitFullscreen()
+    // @ts-ignore
   } else if (document.mozCancelFullScreen) {
+    // @ts-ignore
     document.mozCancelFullScreen()
+    // @ts-ignore
   } else if (document.webkitExitFullscreen) {
+    // @ts-ignore
     document.webkitExitFullscreen()
   }
+}
+
+
+/**
+ * @description: 获取当前浏览器类型
+ * @return {*}
+ */
+export function getExplorer(){
+  const ua = window.navigator.userAgent;
+  const isExplorer=(exp)=>{
+    return ua.indexOf(exp)>-1;
+  }
+  if(isExplorer('MSIE')){
+    return 'IE'
+  }else if (isExplorer('Firefox')){
+    return 'Firefox'
+  }else if (isExplorer('Chrome')){
+    return 'Chrome'
+  } else if(isExplorer('Opera')){
+    return 'Opera'
+  } else if (isExplorer('Safari')){
+    return 'Safari'
+  }
+}
+
+/**
+ * @description: js 等待函数
+ * @param {number} time
+ * @return {*}
+ */
+export function jsSleep(time: number){
+  return new Promise((resolve)=>{
+    setTimeout(()=>{
+      resolve(true)
+    },time);
+  })
 }
