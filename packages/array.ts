@@ -1,4 +1,4 @@
-import { isArray } from "./utils";
+import { isArray, isObject } from "./utils";
 /**
  * @description: 获取数组中的最大值
  * @param {number} arr
@@ -92,4 +92,46 @@ export function getArrayChildTimes(arr: any[], child: any): number {
 export function confuseArray(arr:any[]): any[] {
   const res=arr.slice().sort(() => Math.random() - .5);
   return res;
+}
+
+
+/**
+ * @description: 数组模糊查询
+ * @param {any} arr     // 输入数组
+ * @param {*} keyWord   // 查询的关键字
+ * @param {*} attribute // 如果元素是对象 需要传入匹配的属性
+ * @return {*}
+ */
+export function fuzzyArray(arr:any[],keyWord:string,attribute?:string): any[] {
+  if(arr.length){
+    const itemType=isObject(arr[0]);
+    if(itemType){
+      // 是对象 attribute 检验
+      if(attribute){
+        const reg = new RegExp(keyWord)
+        const list = []
+        for (let i = 0; i < arr.length; i++) {
+          if (reg.test(arr[i][attribute])) {
+            list.push(arr[i])
+          }
+        }
+        return list
+      }else{
+        console.warn('attribute is required');
+        return arr;
+      }
+    }else{
+      // 数组元素不是对象 直接匹配元素值
+      const reg = new RegExp(keyWord)
+      const list = []
+      for (let i = 0; i < arr.length; i++) {
+        if (reg.test(arr[i])) {
+          list.push(arr[i])
+        }
+      }
+      return list
+    }
+  }else{
+    return []
+  }
 }

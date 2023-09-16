@@ -44,6 +44,8 @@ npm run test:coverage
 |allEqualArray| 判断数组中的元素是否都相等|arr: any[]|Boolean|
 |getValidArray| 获取数组中的有效值|arr: any[]|any[]|
 |getArrayChildTimes| 获取数组中的某个元素出现的次数|arr: any[], child: any|number|
+|confuseArray| 混淆数组|arr: any[]|any[]|
+|fuzzyArray| 数组模糊查询|arr: any[], keyWord: string, attribute: string|any[]|
 #### browser.ts 
  | 函数名 | 函数描述|入参|返回值| 
  |:----:|:----|:----:|:----:|
@@ -51,6 +53,10 @@ npm run test:coverage
 |getSelectionText| 获取选中的文本||--|
 |isAppleDevice| 判断是否是苹果设备||--|
 |getUrlParams| 获取url参数|url: string|--|
+|launchFullScreen| 开启全屏|element: HTMLElement|--|
+|exitFullScreen| 退出全屏||--|
+|getExplorer| 获取当前浏览器类型||--|
+|jsSleep| js 等待函数|time: number|--|
 #### date.ts 
  | 函数名 | 函数描述|入参|返回值| 
  |:----:|:----|:----:|:----:|
@@ -63,6 +69,12 @@ npm run test:coverage
  |:----:|:----|:----:|:----:|
 |catchFunctionError| 捕获函数错误|fn: Function, args: any[]|--|
 |onceCall| 只执行一次的函数|fn: Function|--|
+#### number.ts 
+ | 函数名 | 函数描述|入参|返回值| 
+ |:----:|:----|:----:|:----:|
+|thousandSplit| 数字千分位分隔|int: string / number|string|
+|formatMoney| 金额格式化正则|int: string / number|string|
+|randomNumber| 生成范围内随机数|min: number, max: number|number|
 #### string.ts 
  | 函数名 | 函数描述|入参|返回值| 
  |:----:|:----|:----:|:----:|
@@ -83,3 +95,6 @@ npm run test:coverage
 |isEmpty| 判断是否为空|int: any|--|
 |filterNumber|数字千分位分隔|int: string / number|string|
 |deepClone| 深拷贝|obj: any|--|
+|getType| 获取数据类型|obj: any|string|
+|randomColor| 生成随机颜色||string|
+|jsSleep| sleep 函数|time: number|--|

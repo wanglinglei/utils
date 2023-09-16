@@ -9,6 +9,16 @@ export function thousandSplit(int:number|string):string {
 
 
 /**
+ * @description: 金额格式化正则
+ * @param {number} int
+ * @return {*}
+ */
+export function formatMoney(int:number|string):string{
+  const string=String(int);
+  return string.replace(new RegExp(`(?!^)(?=(\\d{3})+${string.includes('.') ? '\\.' : '$'})`, 'g'), ',')
+}
+
+/**
  * @description: 生成范围内随机数
  * @param {number} min
  * @param {number} max
