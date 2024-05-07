@@ -48,7 +48,7 @@ export function arrayTrans(arr: any[], num: number) {
  * @param {any} arr
  * @return {*}
  */
-export function allEqualArray(arr: any[]):Boolean {
+export function allEqualArray(arr: any[]): Boolean {
   if (isArray(arr)) {
     return arr.every((val) => val === arr[0]);
   } else {
@@ -61,9 +61,9 @@ export function allEqualArray(arr: any[]):Boolean {
  * @param {any} arr
  * @return {*}
  */
-export function getValidArray(arr: any[]):any[] {
+export function getValidArray(arr: any[]): any[] {
   if (isArray(arr)) {
-    return arr.filter((item) => item||item===0);
+    return arr.filter((item) => item || item === 0);
   } else {
     throw new Error("arr is not a Array");
   }
@@ -89,8 +89,8 @@ export function getArrayChildTimes(arr: any[], child: any): number {
  * @param {any} arr
  * @return {*}
  */
-export function confuseArray(arr:any[]): any[] {
-  const res=arr.slice().sort(() => Math.random() - .5);
+export function confuseArray(arr: any[]): any[] {
+  const res = arr.slice().sort(() => Math.random() - .5);
   return res;
 }
 
@@ -102,12 +102,12 @@ export function confuseArray(arr:any[]): any[] {
  * @param {*} attribute // 如果元素是对象 需要传入匹配的属性
  * @return {*}
  */
-export function fuzzyArray(arr:any[],keyWord:string,attribute?:string): any[] {
-  if(arr.length){
-    const itemType=isObject(arr[0]);
-    if(itemType){
+export function fuzzyArray(arr: any[], keyWord: string, attribute?: string): any[] {
+  if (arr.length) {
+    const itemType = isObject(arr[0]);
+    if (itemType) {
       // 是对象 attribute 检验
-      if(attribute){
+      if (attribute) {
         const reg = new RegExp(keyWord)
         const list = []
         for (let i = 0; i < arr.length; i++) {
@@ -116,11 +116,11 @@ export function fuzzyArray(arr:any[],keyWord:string,attribute?:string): any[] {
           }
         }
         return list
-      }else{
+      } else {
         console.warn('attribute is required');
         return arr;
       }
-    }else{
+    } else {
       // 数组元素不是对象 直接匹配元素值
       const reg = new RegExp(keyWord)
       const list = []
@@ -131,7 +131,17 @@ export function fuzzyArray(arr:any[],keyWord:string,attribute?:string): any[] {
       }
       return list
     }
-  }else{
+  } else {
     return []
   }
+}
+
+
+/**
+ * @description: 获取数组中所有真值
+ * @param {Array} arr
+ * @return {Array}
+ */
+export function getTruthyArray(arr: Array<any>): Array<any> {
+  return arr.filter(Boolean);
 }
